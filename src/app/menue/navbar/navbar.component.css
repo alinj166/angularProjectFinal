@@ -1,0 +1,23 @@
+a{
+    font-weight: bold;
+    font-size:17px;
+}
+a:hover{
+    border-bottom: 3px solid blue;
+}
+nav{
+    width: 80%;
+    margin-top:3%;
+    margin-left:10%;
+    background-color:floralwhite; 
+}
+
+.act{
+    transform: scale(1.1);
+    border-bottom: 3px solid green;
+    text-decoration: underline;
+}
+.height {
+    height: 100vh
+}
+
