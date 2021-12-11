@@ -1,5 +1,4 @@
-<body>
- 
+<app-navbar></app-navbar>
  <div class="header">
     <div style="display:inline;">
    <h2>{{hotel.name}} ,</h2>
@@ -149,10 +148,10 @@
                           <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
                         </svg>Divertissement
                       </div>
-                      <div style="display:flexbox;" class="col-6" *ngIf="hotel.opt.anulationgrat">
+                      <div style="display:flexbox;" class="col-8" *ngIf="hotel.opt.anulationgrat">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-x-fill" viewBox="0 0 16 16">
                           <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zM6.854 8.146 8 9.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 10l1.147 1.146a.5.5 0 0 1-.708.708L8 10.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 10 6.146 8.854a.5.5 0 1 1 .708-.708z"/>
-                        </svg>Annuler (reser)
+                        </svg>Annuler (reservation)
                       </div>
                       </div>
           </div>
@@ -225,5 +224,5 @@
 <p *ngIf="hotv.length == 0 ">...</p>
 </div>
 
-</body>
+<app-footer></app-footer>
 

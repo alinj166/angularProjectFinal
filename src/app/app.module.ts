@@ -20,6 +20,7 @@ import { AdminComponent } from './composants/gestion/admin/admin.component';
 import { LoginComponent } from './composants/gestion/login/login.component';
 import { FooterComponent } from './composants/footer/footer.component';
 import { Error404Component } from './composants/error404/error404.component';
+import { RechComponent } from './composants/gestion/rech/rech.component';
 
 
 export class CustomHammerConfig extends HammerGestureConfig{
@@ -47,6 +48,8 @@ export class CustomHammerConfig extends HammerGestureConfig{
     LoginComponent,
     FooterComponent,
     Error404Component,
+    RechComponent,
+
     
     
   ],

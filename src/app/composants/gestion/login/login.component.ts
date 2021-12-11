@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Login } from 'src/app/models/login';
 import { LoginService } from 'src/app/services/login.service';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   productForm!: FormGroup;
   l: Login;
-  constructor(private login:LoginService ,private f:FormBuilder) { }
+  constructor(private login:LoginService ,private f:FormBuilder,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -45,23 +45,22 @@ public verif()
   else 
   return true;
 }
-ch:String;
+
 public verifer()
 {
-  
-  
+  return this.l[0].user==this.productForm.value['id']&&this.l[0].pass==this.productForm.value['pass'];
+ 
+ 
+}
 
-   if (this.l[0].user==this.productForm.value['id']&&this.l[0].pass==this.productForm.value['pass'])
+public enter()
+{
+  if (this.verifer())
   {
-    this.ch="true";
-   return true;
+    this.router.navigate(['/admin']);
   }
-   else 
-   {
-   
-   this.ch="false";
-    return false;
-  }
+else 
+alert("Identifiant ou mot de passe incorrect.");
 }
 
 }

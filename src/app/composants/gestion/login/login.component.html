@@ -1,5 +1,5 @@
 
-<div class="bg-gradient-primary">
+<div class="bg-gradient-success ">
     <div class="card">
         <div class="row">
          
@@ -7,22 +7,21 @@
           
             <div class="col-6">
                 <h3>Bienvenue</h3>
-                <form   [formGroup]="productForm" (ngSubmit)="verifer()">
+                <form   [formGroup]="productForm" (ngSubmit)="enter()">
                     <input type="text" class="form-control " formControlName="id" placeholder="Entrer votre id...">
                     <div class="alert alert-danger" *ngIf="id && id.invalid && id.dirty">
                        remplir le champ de l'id  
                     </div>
                     <input type="password" class="form-control "   formControlName="pass" placeholder="Entrer votre mot de passe">
                     <div class="alert alert-danger" *ngIf="pass && pass.invalid&& pass.touched">
-                        saisir le mot de pass avec la taille min 8 de caratéres 
+                        saisir le mot de passe avec la taille min 8 de caratéres 
                      </div>
-                    <input type="submit" class="btn btn-primary  btn-block btn2" value="Login" [disabled]="verif()">
-                    <button class="btn btn-primary  btn-block">Accueil</button> 
-                
+                    <input type="submit" class="btn btn-success  btn-block btn2" value="Login" [disabled]="verif()">
+                    <a class="btn btn-success btn-block" href="#" >Accueil</a> 
                 
                 </form>
             </div>
           </div>
     </div>
- 
+
     </div>

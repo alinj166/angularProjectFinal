@@ -34,7 +34,7 @@ export class ChambreComponent implements OnInit {
       var date1 = new Date(f.value['dateDep']);
      var date2 = new Date(f.value['dateFin']);
        this.tarif = this.chamb.pu *this.difference(date1,date2);
-       console.log(this.tarif);
+     
     }
      
   }

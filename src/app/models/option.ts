@@ -1,13 +1,14 @@
 export class Option {
 
-    constructor(public vueMer:boolean,
-        public wifigrat:boolean,
-        public parkgrat:boolean,
-        public stade:boolean, 
-        public jaquzi:boolean, 
-        public divertisement:boolean,
-        public offre:boolean,
-        public Servicedemenaj:boolean,
-        public mesuresec:boolean,
-        public anulationgrat:boolean){}
+    //class des  option disponible dans un hotel  
+    constructor(public vueMer:boolean, //vue sur mer
+        public wifigrat:boolean, //wifi gratuit
+        public parkgrat:boolean, //parking gratuit 
+        public stade:boolean, //stade 
+        public jaquzi:boolean, //jacuzzi
+        public divertisement:boolean, 
+        public offre:boolean, //offre 
+        public Servicedemenaj:boolean, //service de menage 
+        public mesuresec:boolean, //messure de sécurite 
+        public anulationgrat:boolean){} //annulation gratuit 
 }
