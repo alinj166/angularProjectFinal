@@ -1,4 +1,10 @@
- <div class="header">
+ <div *ngIf="hotel.chambre.length == 0">
+
+<h1 style="margin-top: 20%;margin-left: 30%">Cette Hotel est en Maintenance</h1>
+</div>
+ 
+ <div *ngIf="hotel.chambre.length != 0">
+ <div class="header" >
     <div style="display:inline;">
    <h2>{{hotel.name}} ,</h2>
    <div *ngIf="hotel.nbetoile == 5" style="display: block;">
@@ -223,4 +229,4 @@
 <p *ngIf="hotv.length == 0 ">...</p>
 </div>
 
-
+</div>
