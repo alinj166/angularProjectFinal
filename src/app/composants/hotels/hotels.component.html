@@ -20,19 +20,19 @@
 <p class="text-dark design">les nombre des hotels existant : {{hotils.length}} </p>
 <div  class="carte" >
   <form #f="ngForm">
-  <h5 style="font-weight: bold;">COVID-19<sup style="color: red;">*</sup></h5>
+  <h5 style="font-weight: bold;">{{"COVID-19"|nomHotel}}<sup style="color: red;">*</sup></h5>
      <span class="liner">
       <input type="checkbox" name="mesuresec" value="true" class="form-check-input check" ngModel #chmesure> 
       Etablissements qui applique des <br> mesure de securite 
     </span>
     <hr>
-    <h5 style="font-weight: bold;">Promos</h5>
+    <h5 style="font-weight: bold;">{{"Promos"|nomHotel}}</h5>
     <span class="liner">
     <input type="checkbox" name="anulationgrat" value="true" class="form-check-input check" ngModel #chann> 
       Annulation gratuite
     </span>
     <hr>
-    <h5 style="font-weight: bold;">Ville</h5>
+    <h5 style="font-weight: bold;">{{"Ville"|nomHotel}}</h5>
     <span class="liner">
       <ng-container *ngFor="let v of villes">
     <input type="radio" name="ville" [value]="v"   class="form-check-input check"  ngModel>
@@ -40,7 +40,7 @@
     </ng-container>
     </span>
     <hr>
-    <h5 style="font-weight: bold;">Nombre etoile</h5>
+    <h5 style="font-weight: bold;">{{"Nombre etoile"|nomHotel}}</h5>
     <span class="liner">
       <ng-container *ngFor="let e  of etoiles">
     <input type="radio" name="etoile" [value]="e"  class="form-radio-input check" ngModel >
@@ -48,7 +48,7 @@
     </ng-container>
     </span>
     <hr> 
-    <h5 style="font-weight: bold;">options</h5>
+    <h5 style="font-weight: bold;">{{"options"|nomHotel}}</h5>
     <span class="liner">
     <input type="checkbox" name="wifigrat" value="o.wifigrat" class="form-check-input check" ngModel #chwifi>
     Wifi-gratuit
@@ -375,6 +375,5 @@
     </ng-container>
   </div>
  
-  <app-footer></app-footer>
 
 

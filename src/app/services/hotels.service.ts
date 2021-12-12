@@ -21,9 +21,10 @@ export class HotelsService {
     return this.http.get<Hotel[]>(URL);
   }
   
-  public createHotel(hotel:Hotel){
+  public createHotel(hotel:Hotel, opt:Option){
     hotel ={
       ...hotel,
+      opt:{...opt}  ,
       chambre:[],
       image:[
         "assets/album/galery-movenpique/1.jpg",
@@ -55,7 +56,10 @@ export class HotelsService {
   {
 return this.http.delete(URL+"/"+id);
   }
-  deleteChambre(id:number,h:Hotel):Observable<Hotel>{
+  modifier(id:number,h:Hotel):Observable<Hotel>{
     return this.http.put<Hotel>(URL+"/"+id, h);
   }
+ 
+  
+
 }

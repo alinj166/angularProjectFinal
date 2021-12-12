@@ -21,6 +21,7 @@ import { LoginComponent } from './composants/gestion/login/login.component';
 import { FooterComponent } from './composants/footer/footer.component';
 import { Error404Component } from './composants/error404/error404.component';
 import { RechComponent } from './composants/gestion/rech/rech.component';
+import { NomHotelPipe } from './nom-hotel.pipe';
 
 
 export class CustomHammerConfig extends HammerGestureConfig{
@@ -49,6 +50,7 @@ export class CustomHammerConfig extends HammerGestureConfig{
     FooterComponent,
     Error404Component,
     RechComponent,
+    NomHotelPipe,
 
     
     

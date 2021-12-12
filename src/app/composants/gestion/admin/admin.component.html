@@ -28,23 +28,23 @@
      
         <td>{{h.chambre.length}}</td>
         <td><button [value]="h.chambre" (click)="remplir(h.id,h.chambre)"  class="btn btn-info btn-sm">detail</button>
-           
-              <button name="modifier" class="btn btn-primary btn-sm">modifier</button>
+            
+          
               <button name="supprime"  (click)="onSupprimerHotel(h.id)"class="btn btn-danger btn-sm">supprimer</button>
             </td>
       </tr> 
      <tr>
-       <td> <button name="ajout" class="btn btn-success" (click)="showF()">ajouter</button></td>
+       <td> <button name="ajout" class="btn btn-success" (click)="showH()">ajouter</button></td>
      </tr>
     </tbody>
   </table>
 
-  <form  [formGroup]="ajoutForm" *ngIf="show" (ngSubmit)="AjouterHotel()">
+  <form  [formGroup]="ajoutForm" *ngIf="showHotel" (ngSubmit)="AjouterHotel()">
     <div class="row" style="margin-left: 4%;">
      
       <div class="col-3">
         <label >Numero hotel</label>
-        <input type="number" [value]="this.Ghotel.length+1" class="form-control" formControlName="id" />
+        <input  type="number" class="form-control"  formControlName="id" />
       </div>
       <div class="col-3">
       <label >Nom hotel</label>
@@ -81,10 +81,11 @@
         <input type="checkbox" formControlName="Servicedemenaj" class="form-check-input">service menaje<br>
         
       </form> 
+    
       <div class="col-3">
         <br>
       <button class="btn btn-outline-success" >confirmer</button>
-      <input class="btn btn-outline-dark"type="button" value="annuler"(click)="reset()"/>
+      <input class="btn btn-outline-dark"type="button" value="annuler"(click)="hideH()"/>
     </div>
     </div>
   
@@ -109,24 +110,95 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let h of listChambre">
-         
-         <td *ngIf="h!=null" ><img [src]="h.couvertchamb" class="rounded-circle" width="50" height="50" alt="lg"/></td> 
-        <th scope="row" *ngIf="h!=null">{{h.idch}}</th>
-        <td *ngIf="h!=null">{{h.type}}</td>
-        <td *ngIf="h!=null"><span class="badge bg-warning text-light">{{h.pu|number:'3.2'}} DT </span></td>
-        <td *ngIf="h!=null">{{h.nblit}}</td>
-       <td *ngIf="h!=null">
-        <button name="ajout" class="btn btn-primary btn-sm">modifier</button>
+      <tr *ngFor="let h of listChambre ;index as i">
+        
+         <td  ><img [src]="h.couvertchamb" class="rounded-circle" width="50" height="50" alt="lg"/></td> 
+        <th scope="row" >{{h.idch}}</th>
+        <td >{{h.type}}</td>
+        <td ><span class="badge bg-warning text-light">{{h.pu|number:'3.2'}} DT </span></td>
+        <td >{{h.nblit}}</td>
+       <td >
+        <button name="modifier" (click)="showC(i)" class="btn btn-primary btn-sm">modifier</button>
         <button name="supprime"  (click)="onSupprimerChambre(h.idch)" class="btn btn-danger btn-sm">supprimer</button>
        </td>
+      
       </tr>
    
       <tr>
-          <td><button class="btn btn-danger"(click)="hide()">fermer</button></td>
+        <td> <button name="ajout" (click)="showC(listChambre.length)" class="btn btn-success">ajouter</button>
+         <button class="btn btn-danger"(click)="hide()">fermer</button></td> 
       </tr>
+
+      
     </tbody>
   </table>
 
+
+  
+  <form  [formGroup]="ajoutFormChambre" *ngIf="showChambre" >
+    <div class="row" style="margin-left: 4%;">
+     
+      <div class="col-3">
+        <label >Numero Chambre</label>
+        <input type="number"  class="form-control" [placeholder]="this.listChambre[indexChambre].idch+' (modifier avec id different a les autres id)'" formControlName="idch" />
+      </div>
+      <div class="col-3">
+      <label >type</label>
+      <input type="text"  class="form-control"  [placeholder]="this.listChambre[indexChambre].type" formControlName="type" /><br>
+      </div >
+    <div class="col-3">
+      <label >Prix Unitaire</label><br>
+      <input type="number" class="form-control"  [placeholder]="this.listChambre[indexChambre].pu" formControlName="pu"><br>
+    </div>
+
+      <div class="col-3">
+        <label >image de couverture</label>
+        <input type="text"   class="form-control" [placeholder]="this.listChambre[indexChambre].couvertchamb"  formControlName="couvertchamb" />
+      </div>
+      <div class="col-3">
+        <label >Surface </label>
+        <input type="number"   class="form-control" [placeholder]="this.listChambre[indexChambre].surface" formControlName="surface" />
+      </div>
+      <div class="col-3">
+        <label >nombre de lit </label>
+        <input type="number"   class="form-control" [placeholder]="this.listChambre[indexChambre].nblit" formControlName="nblit" />
+      </div>
+      <div class="col-3">
+        <label >nombre de personne</label>
+        <input type="number"   class="form-control" [placeholder]="this.listChambre[indexChambre].nbpers" formControlName="nbpers" />
+      </div>
+      <div class="col-3">
+      <input type="checkbox" formControlName="clim" [checked]="this.listChambre[indexChambre].clim" class="form-check-input">Climatisseur<br>
+      <input type="checkbox" formControlName="coffre" [checked]="this.listChambre[indexChambre].coffre"  class="form-check-input">Coffre<br>
+      <input type="checkbox" formControlName="minib"  [checked]="this.listChambre[indexChambre].minib" class="form-check-input">mini bar<br>
+    </div>  
+      <form [formGroup]="opt">
+        <input type="checkbox" formControlName="vueMer"  class="form-check-input">Pied dans l'eau<br>
+       <input type="checkbox" formControlName="wifigrat" class="form-check-input" >Wifi<br>
+       <input type="checkbox" formControlName="jaquzi" class="form-check-input">jaquzi<br>
+        <input type="checkbox" formControlName="stade" class="form-check-input" >Stade<br>
+        <input type="checkbox" formControlName="parkgrat" class="form-check-input" >parking<br>
+        <input type="checkbox" formControlName="divertisement" class="form-check-input">divertissement<br>
+        <input type="checkbox" formControlName="offre" class="form-check-input" >offre<br>
+        <input type="checkbox" formControlName="mesuresec" class="form-check-input">mesure securite<br>
+        <input type="checkbox" formControlName="anulationgrat" class="form-check-input" >annulation gratuite<br>
+        <input type="checkbox" formControlName="Servicedemenaj" class="form-check-input">service menaje<br>
+        
+      </form> 
+     
+      <div class="col-4">
+      
+      <button  class="btn btn-success"(click)="onAjoutChambre()" >confirmerAjout</button>
+      <button   class="btn btn-success"(click)="onModifierChambre(indexChambre)" >confirmerModifier</button>
+
+      <input class="btn btn-outline-dark "type="button" value="annuler"(click)="hideC()"/>
+    
+    </div>
+  
+    
+  
+  
+    </div>
+  </form>
  
 </div>
